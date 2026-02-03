@@ -3,10 +3,11 @@ import threading
 import requests
 import sounddevice as sd
 import soundfile as sf
- 
+import os
+
 #Take the API key from ElevenLabs
 
-ELEVEN_API_KEY = "GO ELEVENLABS"
+ELEVEN_API_KEY = os.getenv("ELEVEN_API_KEY")
 VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"
 
 stop_speaking_flag = threading.Event()

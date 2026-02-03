@@ -1,5 +1,6 @@
 import asyncio
 import threading
+import os
 
 from speech_to_text import record_voice, stop_listening_flag
 from llm import get_llm_output
@@ -175,7 +176,8 @@ async def ai_loop(ui: JarvisUI):
 
 
 def main():
-    ui = JarvisUI("face.png", size=(900, 900))
+    face_path = os.path.join(os.path.dirname(__file__), "face.png")
+    ui = JarvisUI(face_path, size=(900, 900))
 
     def runner():
         asyncio.run(ai_loop(ui))

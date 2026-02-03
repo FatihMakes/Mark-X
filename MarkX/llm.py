@@ -10,9 +10,9 @@ load_dotenv()
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
-MODEL = "arcee-ai/trinity-large-preview:free"
+MODEL =  os.getenv("MODEL")
 
-PROMPT_PATH = "core/prompt.txt"
+PROMPT_PATH = os.path.join(os.path.dirname(__file__), "core", "prompt.txt")
 
 
 def load_system_prompt() -> str:
