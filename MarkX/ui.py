@@ -27,15 +27,11 @@ class JarvisUI:
         )
         self.canvas.place(relx=0.5, rely=self.center_y, anchor="center")
 
-        try:
-            self.face_base = (
-                Image.open(face_path)
-                .convert("RGBA")
-                .resize(size, Image.LANCZOS)
-            )
-        except FileNotFoundError:
-            # Create a blank image if face.png is not found
-            self.face_base = Image.new("RGBA", size, (0, 0, 0, 0))
+        self.face_base = (
+            Image.open(face_path)
+            .convert("RGBA")
+            .resize(size, Image.LANCZOS)
+        )
 
         self.halo_base = self._create_halo(size, radius=220, y_offset=-50)
 
